@@ -26,24 +26,19 @@
     if (count($numbers)){
 
         $average = array_sum($numbers)/ count($numbers);
-        echo "<hr />";
+
 
     }
 
     foreach ($numbers as $number=> $value){
         $value = preg_replace("/[^0-9]/", "", $value );
 
-
     }
 
     foreach ($numbers as $number => $value){
 
             if ($value > $average && $value % 2 == 0) {
-
-
-                echo "<br />";
                 break;
-
             }
     }
     $max_value = floor(sqrt(max($numbers)));
@@ -53,19 +48,29 @@
 ?>
 <table align="center">
 
-            <?php for ($i = 1; $i<=$max_value; $i++){ ?>
+            <?php for ($i = 0; $i<$max_value; $i++){ ?>
+
             <tr>
 
-                <?php for ($j = 1; $j<=$max_value; $j++){ ?>
+                <?php for ($j = 0; $j<$max_value; $j++){ ?>
 
-                <td align="center"></td>
+                <td align="center">
+                    <?php
+                    $place = ($i* $max_value) + $j + 1;
+                    if (in_array($place, $numbers) && $place % 2 == 0){
+                        echo $place;
+                    }
+
+                    ?>
+
+                </td>
 
                 <?php } ?>
 
 
             </tr>
 
-        <?php } ?>
+            <?php } ?>
 </table>
 
 
