@@ -35,12 +35,6 @@
 
     }
 
-    foreach ($numbers as $number => $value){
-
-            if ($value > $average && $value % 2 == 0) {
-                break;
-            }
-    }
     $max_value = floor(sqrt(max($numbers)));
     $max_value = $max_value + 1;
     $bold = false;
@@ -62,7 +56,7 @@
 
                         if ($place > $average && $bold === false) {
                             echo "<b>" . $place . "<b />";
-                            $bold == true;
+                            $bold = true;
 
                         }else {
                             echo $place;
