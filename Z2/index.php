@@ -43,6 +43,7 @@
     }
     $max_value = floor(sqrt(max($numbers)));
     $max_value = $max_value + 1;
+    $bold = false;
 
 
 ?>
@@ -58,7 +59,14 @@
                     <?php
                     $place = ($i* $max_value) + $j + 1;
                     if (in_array($place, $numbers) && $place % 2 == 0){
-                        echo $place;
+
+                        if ($place > $average && $bold === false) {
+                            echo "<b>" . $place . "<b />";
+                            $bold == true;
+
+                        }else {
+                            echo $place;
+                        }
                     }
 
                     ?>
