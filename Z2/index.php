@@ -20,6 +20,18 @@
 
     $numbers = explode(',', $_POST['number']);
 
+
+
+        foreach ($numbers as $key => $value){
+            $numbers[$key] = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
+            if(!$numbers[$key]){
+
+                unset($numbers[$key]);
+
+            }
+        }
+
+
     sort($numbers);
 
 
@@ -30,10 +42,10 @@
 
     }
 
-    foreach ($numbers as $number=> $value){
-        $value = preg_replace("/[^0-9]/", "", $value );
 
-    }
+
+
+
 
     $max_value = floor(sqrt(max($numbers)));
     $max_value = $max_value + 1;
